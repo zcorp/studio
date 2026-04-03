@@ -1,0 +1,1 @@
+<template>\n  <div class="workspace-view">\n    <VideoPlayer/>\n    <ResizeHandle />\n    <ViewerPanel/>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: 'WorkspaceView',\n};\n</script>\n\n<style scoped>\n.workspace-view {\n  display: flex;\n  flex-direction: column;\n}\n</style>
