@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --scrollbar-track: #111114;
+    --scrollbar-thumb: #2a2a35;
+    --scrollbar-thumb-hover: #3a3a48;
+  }
+
+  /* Custom scrollbars — dark, minimal */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  html, body, #app {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  /* Panel base */
+  .panel {
+    @apply bg-panel border border-border;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-sm font-body font-medium
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .btn-ghost {
+    @apply btn text-subtle hover:text-text hover:bg-elevated;
+  }
+  .btn-accent {
+    @apply btn bg-accent text-void hover:bg-amber-400 shadow-glow-accent;
+  }
+  .btn-danger {
+    @apply btn text-rejected hover:bg-rejected/10;
+  }
+  .btn-success {
+    @apply btn text-validated hover:bg-validated/10;
+  }
+
+  /* Timecode display */
+  .timecode {
+    @apply font-mono text-accent text-xs tabular-nums;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-mono font-medium;
+  }
+  .tag-principal {
+    @apply tag-pill bg-info/20 text-info border border-info/30;
+  }
+  .tag-figurant {
+    @apply tag-pill bg-muted/40 text-dim border border-border;
+  }
+  .tag-uncertain {
+    @apply tag-pill bg-uncertain/20 text-uncertain border border-uncertain/30;
+  }
+  .tag-validated {
+    @apply tag-pill bg-validated/20 text-validated border border-validated/30;
+  }
+
+  /* Profile card drag ghost */
+  .sortable-ghost {
+    @apply opacity-30 !important;
+  }
+  .sortable-drag {
+    @apply opacity-90 rotate-1 scale-105 shadow-xl !important;
+  }
+
+  /* Input base */
+  .input-dark {
+    @apply bg-void border border-border rounded px-2 py-1 text-sm text-text
+           focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/20
+           placeholder:text-dim;
+  }
+
+  /* Separator */
+  .sep {
+    @apply border-t border-border;
+  }
+}
+
+/* YouTube iframe */
+iframe {
+  border: none;
+}
+
+/* Transition classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.2s ease;
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
